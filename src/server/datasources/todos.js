@@ -1,4 +1,4 @@
-const { MOCK_SERVER } = process.env;
+const { MOCK_SERVER, MOCK_PORT } = process.env;
 
 module.exports = {
   name: 'todos',
@@ -13,7 +13,7 @@ module.exports = {
       },
       template: {
         method: 'GET',
-        url: MOCK_SERVER ? `http://${MOCK_SERVER}/todos` : 'https://jsonplaceholder.typicode.com/todos',
+        url: MOCK_SERVER && MOCK_PORT ? `http://${MOCK_SERVER}:${MOCK_PORT}/todos` : 'https://jsonplaceholder.typicode.com/todos',
         query: {
           userId: '{userId}'
         }
