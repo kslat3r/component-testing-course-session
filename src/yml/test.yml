@@ -1,0 +1,18 @@
+component-testing-course-session-api:
+  extends:
+    file: "docker-compose.yml"
+    service: "component-testing-course-session-api"
+  links:
+    - mock-server
+  volumes:
+    - ..:/opt/app
+    - /opt/app/node_modules
+  command: npm run test
+  environment:
+    - MOCK_SERVER=mock-server
+    - MOCK_PORT=1080
+
+mock-server:
+  image: jamesdbloom/mockserver:mockserver-3.11
+  environment:
+    - JVM_OPTIONS=-Dmockserver.enableCORSForAPI=false
