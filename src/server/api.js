@@ -1,7 +1,10 @@
 const loopback = require('loopback');
 const http = require('http');
+const createDatasources = require('./helpers/create-datasources');
 
 const app = loopback();
+
+createDatasources(app, `${__dirname}/datasources`);
 
 app.start = (httpOnly) => {
   const port = app.get('port');

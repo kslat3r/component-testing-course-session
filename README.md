@@ -1,1 +1,1 @@
-# mocha-chai-supertest-hackathon
+# component-testing-course-session

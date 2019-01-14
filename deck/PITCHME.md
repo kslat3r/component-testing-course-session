@@ -1,16 +1,13 @@
-## Mocha/Chai/Supertest workshop
+## Component testing in Node.js
 
-### June 22nd 2018
+### February 26th 2019
 
 ---
 
 ### What we will cover
 
-* Mocha test runner and reporting
-* NYC test code coverage tool
-* Creating good assertions with Chai
-* Mocking functions using Sinon
 * Component testing your application using Supertest
+* Setting up your mocks using mock-server v3.1.11
 
 *Bear in mind that this is a code-along!*
 
@@ -43,9 +40,9 @@
 
 ### Please clone the following repository from Github
 
-#### https://github.com/kslat3r/mocha-chai-supertest-hackathon
+#### https://github.com/kslat3r/unit-testing-course-session
 
-* Checkout the branch `step-one`
+* Checkout the branch `master`
 * Make sure you have a `src/` directory and navigate to it
 
 ---
@@ -66,51 +63,6 @@
 
 ---
 
-## Introducing our test runner
-
----
-
-### Steps to complete:
-
-* Install `mocha` test runner
-* Install `nyc` code coverage tool
-* Add `nyc` configuration in `package.json`
-* Reconfigure the `npm test` command to execute the empty spec files with `nyc` and `mocha`
-
----
-
-## Adding some libraries
-
----
-
-### Steps to complete:
-
-* Install `sinon`, a mocking library
-* Install `chai`, an assertion library
-
----
-
-## Adding some specs!
-
----
-
-### Specs to complete:
-
-* filters/todo.spec.js
-* mappers/todo.spec.js
-* models/user.spec.js
-* services/todo.spec.js
-* services/user.spec.js
-
----
-
-## Things to think about
-
-* Use `sinon` where appropriate to mock application dependencies outside of the units
-* Use `chai` where appropriate to create assertions against results
-
----
-
 ## Writing some component tests
 
 ---
@@ -125,5 +77,13 @@
 * **BONUS** add the `mochawesome` reporting tool
 
 ---
+
+## Decoupling your component tests
+
+---
+
+* Use a mock-server to mock your downstream integration
+* Install Docker on your system
+* Run your component tests using docker-compose
 
 ### Thank-you all very much!

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const boot = require('loopback-boot');
 const api = require('./api');
 
