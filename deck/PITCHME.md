@@ -40,7 +40,7 @@
 
 ### Please clone the following repository from Github
 
-#### https://github.com/kslat3r/unit-testing-course-session
+#### https://github.com/kslat3r/component-testing-course-session
 
 * Checkout the branch `master`
 * Make sure you have a `src/` directory and navigate to it
