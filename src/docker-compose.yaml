@@ -1,0 +1,18 @@
+component-testing-course-session-api:
+  build: .
+  links:
+    - mockify
+  volumes:
+    - .:/opt/app
+    - /opt/app/node_modules
+  command: npm run test
+
+mockify:
+  image: newlinelabs/mockify:1.0.2
+  volumes:
+    - ./tests/data:/data
+  ports: 
+    - 8001:8001
+  environment:
+    - MOCKIFY_PORT=8001
+    - MOCKIFY_ROUTES=/data/stubs.yaml

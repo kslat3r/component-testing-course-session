@@ -1,15 +1,15 @@
 {
-  "name": "unit-testing-course-session",
+  "name": "component-testing-course-session",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "format": "semistandard --env mocha --fix",
     "pretest": "npm run format",
-    "test": "npm run test:coverage npm run test:unit",
+    "test": "npm run test:coverage npm run test:unit && npm run test:component",
     "test:coverage": "nyc",
-    "test:unit": "mocha --exit './**/*.spec.js' --exclude './node_modules/**/*'",
-    "test:component": "cross-env MOCHAWESOME_REPORTDIR=./test/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome './tests/**/*.spec.js'"
+    "test:unit": "mocha --exit './**/*.spec.js' --exclude './node_modules/**/*' --exclude './tests/**/*'",
+    "test:component": "MOCHAWESOME_REPORTDIR=./tests/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome --file './tests/bootstrap.js' './tests/**/*.spec.js'"
   },
   "dependencies": {
     "debug": "~2.6.9",
@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "cross-env": "^5.2.1",
     "eslint": "^6.8.0",
     "eslint-config-semistandard": "^15.0.0",
     "eslint-config-standard": "^13.0.1",
@@ -57,5 +56,10 @@
     "statements": 100,
     "functions": 100,
     "branches": 100
+  },
+  "semistandard": {
+    "ignore": [
+      "tests/reports/**/*"
+    ]
   }
 }
