@@ -74,7 +74,7 @@
 * Checkout the branch `step-one`
 * Install `supertest` HTTP assertion library
 * Configure `package.json` with a new NPM script to execute our component tests
-* In the directory `src/test/`, write component tests for:
+* In the directory `src/tests/`, write component tests for:
   * `GET /api/users`
   * `GET /api/users/1`
 * **BONUS** add the `mochawesome` reporting tool

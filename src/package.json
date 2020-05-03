@@ -6,14 +6,16 @@
     "start": "node ./bin/www",
     "format": "semistandard --env mocha --fix",
     "pretest": "npm run format",
-    "test": "npm run test:coverage npm run test:unit && npm run test:component",
+    "test": "npm run test:coverage npm run test:unit",
     "test:coverage": "nyc",
-    "test:unit": "mocha --exit './**/*.spec.js' --exclude './node_modules/**/*' --exclude './tests/**/*'",
-    "test:component": "MOCHAWESOME_REPORTDIR=./tests/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome --file './tests/bootstrap.js' './tests/**/*.spec.js'"
+    "test:unit": "mocha --exit './**/*.spec.js' --exclude './node_modules/**/*' --exclude './tests/**/*'"
   },
   "docker": {
     "pretest:component": "docker run -it -d -p 0.0.0.0:8001:8001 -v `pwd`/tests/data:/data -e MOCKIFY_ROUTES=/data/stubs.yaml -e MOCKIFY_PORT=8001 newlinelabs/mockify:1.0.2",
     "posttest:component": "docker stop $(docker ps -q --filter ancestor=newlinelabs/mockify:1.0.2)"
+  },
+  "component": {
+    "test:component": "MOCHAWESOME_REPORTDIR=./tests/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --exit --timeout 100000 --reporter mochawesome --file './tests/bootstrap.js' './tests/**/*.spec.js'"
   },
   "dependencies": {
     "debug": "~2.6.9",
@@ -37,8 +39,7 @@
     "mochawesome": "^4.1.0",
     "nyc": "^14.1.1",
     "semistandard": "^14.2.0",
-    "sinon": "^4.3.0",
-    "supertest": "^4.0.2"
+    "sinon": "^4.3.0"
   },
   "nyc": {
     "include": [
